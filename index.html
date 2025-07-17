@@ -3,61 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Encuesta</title>
+    <meta name="description" content="Formulario de encuesta profesional para recopilar información de usuarios">
+    <title>Encuesta de Satisfacción | Formulario Profesional</title>
+    
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Estilos locales -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="text-center">Encuesta de Satisfacción</h1>
+            <p id="description" class="text-center">Ayúdanos a mejorar nuestros servicios completando este breve formulario. Tus respuestas son anónimas y confidenciales.</p>
+        </header>
 
-    <!-- Título de la página -->
-    <h1 id="title">Formulario de Encuesta</h1>
-       <br/>	
-    <!-- Descripción -->
-    <p id="description">Por favor, completa este formulario de encuesta.</p>
+        <form id="survey-form" class="survey-form">
+            <div class="form-group">
+                <label id="name-label" for="name">
+                    Nombre completo
+                    <span class="required">*</span>
+                </label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Ej: Juan Pérez" required>
+            </div>
 
-    <!-- Formulario de encuesta -->
-    <form id="survey-form">
+            <div class="form-group">
+                <label id="email-label" for="email">
+                    Correo electrónico
+                    <span class="required">*</span>
+                </label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Ej: usuario@ejemplo.com" required>
+            </div>
 
-        <!-- Nombre -->
-        <label id="name-label" for="name">Nombre:</label>
-        <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" required>
+            <div class="form-group">
+                <label id="number-label" for="number">
+                    Edad
+                    <span class="required">*</span>
+                </label>
+                <input type="number" id="number" name="age" min="18" max="99" class="form-control" placeholder="Entre 18 y 99 años" required>
+            </div>
 
-        <!-- Email -->
-        <label id="email-label" for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
+            <div class="form-group">
+                <label for="dropdown">
+                    ¿Cómo nos conociste?
+                    <span class="required">*</span>
+                </label>
+                <select id="dropdown" name="source" class="form-control" required>
+                    <option value="" disabled selected>Selecciona una opción</option>
+                    <option value="amigos">Recomendación de amigos/familia</option>
+                    <option value="internet">Búsqueda en Internet</option>
+                    <option value="redes-sociales">Redes sociales</option>
+                    <option value="publicidad">Publicidad (online u offline)</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
 
-        <!-- Número -->
-        <label id="number-label" for="number">Edad:</label>
-        <input type="number" id="number" name="age" min="18" max="99" placeholder="Ingresa tu edad" required>
+            <div class="form-group">
+                <fieldset>
+                    <legend>
+                        Género
+                        <span class="required">*</span>
+                    </legend>
+                    <div class="radio-group">
+                        <label>
+                            <input type="radio" name="gender" value="masculino" class="input-radio" required> 
+                            Masculino
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="femenino" class="input-radio"> 
+                            Femenino
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="no-binario" class="input-radio"> 
+                            No binario
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="prefiero-no-decir" class="input-radio"> 
+                            Prefiero no decir
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
 
-        <!-- Desplegable -->
-        <label for="dropdown">¿Cómo nos encontraste?</label>
-        <select id="dropdown" name="dropdown" required>
-            <option value="" disabled selected>Selecciona una opción</option>
-            <option value="amigos">Amigos</option>
-            <option value="internet">Internet</option>
-            <option value="publicidad">Publicidad</option>
-        </select>
+            <div class="form-group">
+                <fieldset>
+                    <legend>¿Qué tecnologías conoces? (Selecciona todas las que apliquen)</legend>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="technologies" value="javascript" class="input-checkbox"> 
+                            JavaScript
+                        </label>
+                        <label>
+                            <input type="checkbox" name="technologies" value="python" class="input-checkbox"> 
+                            Python
+                        </label>
+                        <label>
+                            <input type="checkbox" name="technologies" value="java" class="input-checkbox"> 
+                            Java
+                        </label>
+                        <label>
+                            <input type="checkbox" name="technologies" value="csharp" class="input-checkbox"> 
+                            C#
+                        </label>
+                        <label>
+                            <input type="checkbox" name="technologies" value="php" class="input-checkbox"> 
+                            PHP
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
 
-        <!-- Botones de radio -->
-        <p>¿Cuál es tu género?</p>
-        <label><input type="radio" name="gender" value="masculino" required> Masculino</label>
-        <label><input type="radio" name="gender" value="femenino"> Femenino</label>
-        <label><input type="radio" name="gender" value="otro"> Otro</label>
+            <div class="form-group">
+                <label for="comments">
+                    Comentarios o sugerencias
+                    <span class="optional">(Opcional)</span>
+                </label>
+                <textarea id="comments" name="comments" class="input-textarea" rows="5" placeholder="Escribe aquí tus comentarios, sugerencias o inquietudes..."></textarea>
+            </div>
 
-        <!-- Casillas de verificación -->
-        <p>¿Qué lenguajes de programación conoces?</p>
-        <label><input type="checkbox" name="languages" value="javascript"> JavaScript</label>
-        <label><input type="checkbox" name="languages" value="python"> Python</label>
-        <label><input type="checkbox" name="languages" value="java"> Java</label>
+            <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">
+                    <i class="fas fa-paper-plane"></i> Enviar encuesta
+                </button>
+            </div>
+        </form>
+    </div>
 
-        <!-- Textarea -->
-        <label for="comments">Comentarios adicionales:</label>
-        <textarea id="comments" name="comments" rows="4" placeholder="Escribe tus comentarios aquí..."></textarea>
-
-        <!-- Botón de enviar -->
-        <button type="submit" id="submit">Enviar</button>
-        
-    </form>
-
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">© 2025 Victoriano Domínguez Henríquez. Todos los derechos reservados.</p>
+            
+            <ul class="social-links">
+                <li>
+                    <a href="https://web.facebook.com/profile.php?id=61573209977446&locale=es_LA" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/victoriano-dominguez-henríquez-614785144" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/InformaticaEmpresarial-Tic-Docente/InformaticaEmpresarial-Tic-Docente" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
